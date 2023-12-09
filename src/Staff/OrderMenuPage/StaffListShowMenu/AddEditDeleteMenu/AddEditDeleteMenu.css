@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+
+.AddEditDeleteMenu h2{
+    margin-top: 3%;
+    margin-left: 9%;
+    color: black;
+    font-family: 'Itim', cursive;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px;
+}
+.FrameStaffAddMenu{
+    width: 50vw;
+    height: 13vw;
+    background: pink;
+    margin-left: 8%;
+    border-radius: 20px;
+}

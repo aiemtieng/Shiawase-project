@@ -1,0 +1,9 @@
+.StaffOrderMenuPage{
+    overflow: hidden;
+}
+.StaffOrderSummary{
+    display: flex;
+    justify-content: right;
+    margin-right: 5%;
+    margin-top: -22%;
+}
