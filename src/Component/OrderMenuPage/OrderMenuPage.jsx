@@ -6,6 +6,7 @@ import ButtonMenu from '../OrderMenuPage/ButtonMenu/ButtonMenu'
 import Footer from '../Home/Footer/Footer'
 import OrderMenuSummary from './OrderMenuSummary/OrderMenuSummary'
 import ListShowMenu from './ListShowMenu/ListShowMenu'
+import StaffListShowMenu from '../../Staff/OrderMenuPage/StaffListShowMenu/StaffListShowMenu'
 
 function OrderMenuPage() {
   return (
@@ -13,8 +14,9 @@ function OrderMenuPage() {
         <NavBar/>
         <PosterMenu/>
         <ButtonMenu/>
-        <ListShowMenu/>
+        <StaffListShowMenu/>
         <OrderMenuSummary/>
+        <Footer/>
     </div>
   )
 }

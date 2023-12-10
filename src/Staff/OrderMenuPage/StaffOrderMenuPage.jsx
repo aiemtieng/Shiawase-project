@@ -5,7 +5,8 @@ import ButtonMenu from '../../Component/OrderMenuPage/ButtonMenu/ButtonMenu'
 import StaffNavBar from '../Home/NavBar/StaffNavBar'
 import StaffListShowMenu from './StaffListShowMenu/StaffListShowMenu'
 import StaffOrderSummary from './StaffOrderSummary/StaffOrderSummary'
-
+import Footer from '../../Component/Home/Footer/Footer'
+import ButtonEditandShowEdit from './ButtonEditanddPlus/ButtonEditandShowEdit'
   
 function StaffOrderMenuPage() {
   return (
@@ -13,8 +14,8 @@ function StaffOrderMenuPage() {
         <StaffNavBar/>
         <PosterMenu/>
         <ButtonMenu/>
-        <StaffListShowMenu/>
-        <StaffOrderSummary/>
+        <ButtonEditandShowEdit/>
+        <Footer/>
     </div>
   )
 }

@@ -10,7 +10,7 @@ import StaffHome from './Staff/Home/StaffHome';
 function App() {
   return (
     <div className="App">
-        <Home/>
+        <StaffHome/>
     </div>
   );
 }
