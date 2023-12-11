@@ -2,8 +2,9 @@
     overflow: hidden;
 }
 .OrderMenuSummary{
+    
     display: flex;
     justify-content: right;
     margin-right: 5%;
-    margin-top: -25%;
+    margin-top: -4%;
 }

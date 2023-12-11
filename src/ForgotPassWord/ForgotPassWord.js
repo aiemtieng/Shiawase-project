@@ -11,6 +11,10 @@ export const ForgotPassWord = () => {
   const handleButtonClick = () => {
     navigate('/Login');
   };
+
+  const handleButtonLoginClick = () => {
+    navigate('/');
+  };
   return (
     <div className="ForgotPassword">
       <div className="overlap-wrapper">
@@ -30,7 +34,7 @@ export const ForgotPassWord = () => {
             </div>
           </div>
           <div className="nav-logo">
-            <div className="shiawase"> shiawase</div>
+            <div className="shiawase" onClick={handleButtonLoginClick}> shiawase</div>
             <img
               className="line-2"
               alt="Line"

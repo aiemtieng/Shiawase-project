@@ -131,6 +131,7 @@
     margin-top: -10px;
     position: relative;
     width: 215px;
+    cursor: pointer;
   }
   
   .ForgotPassword .line-2 {

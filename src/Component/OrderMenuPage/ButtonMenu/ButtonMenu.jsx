@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import './ButtonMenu.css';
 import StaffListShowMenu from '../../../Staff/OrderMenuPage/StaffListShowMenu/StaffListShowMenu';
+import CoffeeMenu from '../ListShowMenu/CoffeeMenu/CoffeeMenu';
+import SodaMenu from '../ListShowMenu/SodaMenu/SodaMenu';
+import BakeryMenu from '../ListShowMenu/BakeryMenu/BakeryMenu';
+import TeaMenu from '../ListShowMenu/TeaMenu/TeaMenu';
 
 function ButtonMenu() {
   const [showMilkContent, setShowMilkContent] = useState(false);
@@ -21,24 +25,25 @@ function ButtonMenu() {
         <button className='tea-button' onClick={() => setShowTeaContent(!showTeaContent)}>
           ชา
         </button>
-        
+        {showTeaContent && <TeaMenu />}
       </div>
       <div className='DrinkCoffee'>
         <button className='coffee-button' onClick={() => setShowCoffeeContent(!showCoffeeContent)}>
           กาแฟ
         </button>
-        
+        {showCoffeeContent && <CoffeeMenu />}
       </div>
       <div className='DrinkSoda'>
         <button className='soda-button' onClick={() => setShowSodaContent(!showSodaContent)}>
           โซดา
         </button>
-        
+        {showSodaContent && <SodaMenu />}
       </div>
       <div className='DessertBakery'>
         <button className='bakery-button' onClick={() => setShowBakeryContent(!showBakeryContent)}>
           เบเกอรี่
         </button>
+        {showBakeryContent && <BakeryMenu />}
       </div>
     </div>
   );
