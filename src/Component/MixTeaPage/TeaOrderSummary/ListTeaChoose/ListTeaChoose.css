@@ -1,9 +1,28 @@
-.NameOfTea{
-    list-style-type: none;
-    color: #000;
-    font-family: Itim;
-    font-size: 25px;
-    font-style: normal;
+.ListTeaChoose {
+    margin-left: 50%;
+    margin-top: -10%;
+    
+  }
+  
+  .SelectedOptionText {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 50px;
+  }
+  
+  .SelectedOptionText h3 {
+    margin: 10% 0%;
+    gap: 10px;
+    font-family: 'Itim', cursive;
+    font-size: 18px;
     font-weight: 400;
-    line-height: normal;
-}
+    line-height: 1.5;
+    color: #145D18;
+    text-align: center;
+  }
+
+
+  

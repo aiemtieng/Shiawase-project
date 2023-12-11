@@ -1,48 +1,60 @@
 import React, { useState, useEffect } from "react";
 import "./StaffListShowMenu.css";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs,onSnapshot } from "firebase/firestore";
 import { listAll, ref, getDownloadURL } from "firebase/storage";
 import { database, imagedatabase } from "../../../Firebase";
+import { orderBy,query } from "firebase/firestore";
 
 function StaffListShowMenu() {
-  const [menuData, setMenuData] = useState([]); // Show data
-  const [menuImages, setMenuImages] = useState([]);
+  const [menuData, setMenuData] = useState([]);
+const [menuImages, setMenuImages] = useState([]);
 
-  const table1Ref = collection(database, "table1");
+const table1Ref = collection(database, "table1");
 
-  useEffect(() => {
-    loadData();
-    loadImages();
-  }, []);
+useEffect(() => { // Make sure `loadImages` is defined somewhere
+  const unsubscribe = loadRealTime();
+  return () => {
+    unsubscribe();
+  };
+}, []);
 
-  const loadData = async () => {
-    try {
-      const querySnapshot = await getDocs(table1Ref);
-      const newData = querySnapshot.docs.map((doc) => ({
+const loadRealTime = () => {
+  const unsubscribe = onSnapshot(
+    query(collection(database, "table1"), orderBy("menu_name")), // Sort by 'menu_name'
+    (snapshot) => {
+      const newData = snapshot.docs.map((doc) => ({
         id: doc.id,
         ...doc.data(),
       }));
-      console.log("Fetched Data:", newData);
-      setMenuData(newData);
+
+      // Check for duplicates before updating the state
+      setMenuData((prevData) => {
+        const existingIds = prevData.map((item) => item.id);
+        const filteredNewData = newData.filter((item) => !existingIds.includes(item.id));
+        return [...prevData, ...filteredNewData];
+      });
+    }
+  );
+
+  return unsubscribe;
+};
+
+useEffect(() => {
+  const fetchImageURLs = async () => {
+    try {
+      const imgs = await listAll(ref(imagedatabase, "files"));
+      const urls = await Promise.all(imgs.items.map((val) => getDownloadURL(val)));
+      setMenuImages(urls); // Use setMenuImages instead of setImgUrl
     } catch (error) {
-      console.error("Error loading data:", error);
+      console.error("Error fetching image URLs:", error);
     }
   };
 
-  const loadImages = () => {
-    listAll(ref(imagedatabase, "files"))
-      .then((imgs) => {
-        const promises = imgs.items.map((val) => getDownloadURL(val));
-        return Promise.all(promises);
-      })
-      .then((urls) => {
-        console.log("Image URLs:", urls);
-        setMenuImages(urls);
-      })
-      .catch((error) => {
-        console.error("Error loading images:", error);
-      });
-  };
+  fetchImageURLs();
+}, []);
+console.log('menuImages:', menuImages);
+console.log('menuData:', menuData);
+
 
   return (
     <div className="StaffListShowMenu">

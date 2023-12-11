@@ -5,7 +5,7 @@
     align-items: center;
     justify-content: center;
     width: 100vw;
-    height: 25vh;
+    height: auto;
     margin-top: -1%;
     background: white;
     display: block; 
@@ -44,7 +44,8 @@
     border: white;
     background: white;
     text-decoration: none; /* Remove the default underline */
-    position: relative; /* Add this line for positioning the underline */
+    position: relative;
+    cursor: pointer; /* Add this line for positioning the underline */
 }
 .DrinkandBakery button::after {
     content: "";
@@ -64,3 +65,8 @@
      color: black;
      font-size: 27px;
 }
+.DrinkRecommend{
+    width: 100%;
+    margin-left: 3.7%;
+}
+

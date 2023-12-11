@@ -73,6 +73,10 @@ const router = createBrowserRouter([
     path: "logostaffpage",
     element: <StaffHome/>
   },
+  {
+    path: "staffbuttonorder",
+    element: <StaffOrderMenuPage/>
+  }
  
   
  

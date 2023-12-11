@@ -14,7 +14,7 @@ function TeaName() {
             <li>(เลือกส่วนผสมได้อย่างละ 1 รายการ)</li>
           </ul>
         </div>
-        <div className="StraightLineTeaMenu"></div>
+        
       </div>
     </div>
   );

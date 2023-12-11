@@ -8,6 +8,7 @@ import RaspberyPancake from "../../../../img/raspberry pancake.png";
 function BakeryRowOne() {
   return (
     <div className="BakeryRowOne">
+      <h3 className="BakeryTitle">เบเกอรี่</h3>
       <div className="PhotoBakeryRecommend">
         <div className="FrameBakeryImageSection">
           <img src={FrameMenu} alt="FrameMenu"></img>

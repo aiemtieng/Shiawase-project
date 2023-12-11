@@ -13,47 +13,42 @@ import {
 import { imagedatabase } from "../../../../Firebase";
 import { getDownloadURL, listAll, ref, uploadBytes } from "firebase/storage";
 import { v4 as uuid } from "uuid";
+import { orderBy,query } from "firebase/firestore";
 
 function AddEditDeleteMenu() {
   //ส่วนเพิ่มรูปลงdatabaseและเอาออกมาโชว์
   const [image, setImage] = useState("");
-  const [imgUrl, setImgUrl] = useState([]);
+const [imgUrl, setImgUrl] = useState([]);
+// Other states...
 
-  const handleClick = () => {
-    if (image !== null) {
-      const imgRef = ref(imagedatabase, `files/${uuid()}`);
-      uploadBytes(imgRef, image).then((value) => {
-        console.log(value);
-        getDownloadURL(value.ref).then((url) => {
-          setImgUrl((data) => [...data, url]);
-        });
+const handleClick = () => {
+  if (image) {
+    const imgRef = ref(imagedatabase, `files/${uuid()}`);
+    uploadBytes(imgRef, image).then((value) => {
+      console.log(value);
+      getDownloadURL(value.ref).then((url) => {
+        setImgUrl((data) => [...data, url]);
       });
+    });
+  }
+};
+
+useEffect(() => {
+  const fetchImageURLs = async () => {
+    try {
+      const imgs = await listAll(ref(imagedatabase, "files"));
+      const urls = await Promise.all(imgs.items.map((val) => getDownloadURL(val)));
+      setImgUrl(urls);
+    } catch (error) {
+      console.error("Error fetching image URLs:", error);
     }
   };
 
-  useEffect(() => {
-    listAll(ref(imagedatabase, "files")).then((imgs) => {
-      console.log(imgs);
-      imgs.items.forEach((val) => {
-        getDownloadURL(val).then((url) => {
-          setImgUrl((data) => [...data, url]);
-        });
-      });
-    });
-  }, []);
+  fetchImageURLs();
+}, []);
 
-  console.log(imgUrl, "imgUrl");
+// Rest of your code remains unchanged...
 
-  //ส่วนของรูปภาพ
-  useEffect(() => {
-    listAll(ref(imagedatabase, "files")).then((imgs) => {
-      const promises = imgs.items.map((val) => getDownloadURL(val));
-      Promise.all(promises).then((urls) => {
-        console.log("Image URLs:", urls); // Check the image URLs
-        setImgUrl(urls);
-      });
-    });
-  }, []);
 
   //ส่วนเพิ่มข้อมูลลงdatabase
   const [form, setForm] = useState({});
@@ -72,17 +67,28 @@ function AddEditDeleteMenu() {
   }, []);
 
   const loadRealTime = () => {
-    const unsubscribe = onSnapshot(table1Ref, (snapshort) => {
-      const newData = snapshort.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data(),
-      }));
-      setData(newData);
-    });
-    return () => {
-      unsubscribe();
-    };
+    const unsubscribe = onSnapshot(
+      query(collection(database, "table1"), orderBy("menu_name")), // Sort by 'menu_name'
+      (snapshot) => {
+        const newData = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+  
+        // Check for duplicates before updating the state
+        setData((prevData) => {
+          const existingIds = prevData.map((item) => item.id);
+          const filteredNewData = newData.filter((item) => !existingIds.includes(item.id));
+          return [...prevData, ...filteredNewData];
+        });
+      }
+    );
+  
+    return unsubscribe;
   };
+  
+  
+
 
   console.log("Data:", data); // Check the 'data' state
   console.log("Img URLs:", imgUrl); // Check the 'imgUrl' state
@@ -106,10 +112,13 @@ function AddEditDeleteMenu() {
   const handleDelete = async (id) => {
     try {
       await deleteDoc(doc(table1Ref, id));
+      // Update local state after successful deletion
+      setData((prevData) => prevData.filter((item) => item.id !== id));
     } catch (err) {
       console.log(err);
     }
   };
+  
 
   //Save and Cancel
   const handleSave = async(id)=>{

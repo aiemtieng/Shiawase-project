@@ -4,6 +4,8 @@ import MilkRecommend from './MilkRecommend/MilkRecommend'
 import TeaRecommend from './TeaRecommend/TeaRecommend'
 import CoffeeRecommend from './CoffeeRecommend/CoffeeRecommend'
 import SodaRecommend from './SodaRecommend/SodaRecommend'
+import BakeryRowOne from '../LinkBakery/BakeryRowOne/BakeryRowOne'
+import BakeryRowTwo from '../LinkBakery/BakeryRowTwo/BakeryRowTwo'
 
 function DrinkRecommend() {
   return (
@@ -12,6 +14,8 @@ function DrinkRecommend() {
         <TeaRecommend/>
         <CoffeeRecommend/>
         <SodaRecommend/>
+        <BakeryRowOne/>
+        <BakeryRowTwo/>
     </div>
   )
 }

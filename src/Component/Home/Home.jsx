@@ -15,6 +15,8 @@ function Home() {
         <MainPage/>
         <OrderBooking/>
         <Recommend/>
+        <DrinkRecommend/>
+        <Footer/>
     </div>
   )
 }

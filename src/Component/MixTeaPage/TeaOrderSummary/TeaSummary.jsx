@@ -14,7 +14,7 @@ function TeaSummary() {
                 <li>สรุปออเดอร์</li>
             </ul>
             <div className='LineUnderNameOrder'></div>
-            <ListTeaChoose/>
+          
             <ButtonChooseGetDrink/>
             <HowToPay/>
             <SumOfMoney/>

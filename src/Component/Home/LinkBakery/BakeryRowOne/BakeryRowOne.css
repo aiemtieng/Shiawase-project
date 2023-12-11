@@ -1,5 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
 
+.BakeryRowOne{
+    margin-top: -2%;
+}
+.BakeryTitle{
+    text-align: center;
+    margin-top: 4%;
+    margin-left: -55%;
+    font-family: 'Itim', cursive;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px;
+    color: white;
+}
 .PhotoBakeryRecommend{
     display: flex;
     justify-content: center;
