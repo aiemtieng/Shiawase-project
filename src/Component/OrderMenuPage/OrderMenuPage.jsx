@@ -14,7 +14,6 @@ function OrderMenuPage() {
         <NavBar/>
         <PosterMenu/>
         <ButtonMenu/>
-        <StaffListShowMenu/>
         <OrderMenuSummary/>
         <Footer/>
     </div>

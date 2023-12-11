@@ -1,6 +1,7 @@
 .StaffHome{
     position: absolute;
     z-index: -1;
+    background: #4E6C50;
 }
 /* Hide the scrollbar for all browsers */
 /* Note: This may not work on older versions of some browsers */

@@ -11,11 +11,13 @@ import OrderMenuPage from './Component/OrderMenuPage/OrderMenuPage';
 import MixMenuPage from './Component/MixMenuPage/MixMenuPage';
 import MixTeaPage from './Component/MixTeaPage/MixTeaPage';
 import MixCoffeePage from './Component/MixCoffeePage/MixCoffeePage';
-import DrinkRecommend from './Component/Home/LinkDrink/DrinkRecommend';
 import ReviewPage from './Component/ReviewPage/ReviewPage';
 import QRCodePage from './Component/QRCodePage/QRCodePage';
 import StaffOrderMenuPage from './Staff/OrderMenuPage/StaffOrderMenuPage';
 import StaffHome from './Staff/Home/StaffHome';
+import Login from "./login/Login"
+import CreateAccount from './CreateAcc/CreateAccount';
+import ForgotPassWord from './ForgotPassWord/ForgotPassWord';
 
 
 
@@ -76,6 +78,18 @@ const router = createBrowserRouter([
   {
     path: "staffbuttonorder",
     element: <StaffOrderMenuPage/>
+  },
+  {
+    path: "CreateAccount",
+    element: <CreateAccount/>
+  },
+  {
+    path: "Login",
+    element: <Login/>
+  },
+  {
+    path: "ForgotPassWord",
+    element: <ForgotPassWord/>
   }
  
   
@@ -89,7 +103,11 @@ const router = createBrowserRouter([
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <RouterProvider router={router}/>
+  <React.StrictMode>
+    <RouterProvider router={router}>
+      <Login/>
+    </RouterProvider>
+  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

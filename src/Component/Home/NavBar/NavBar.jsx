@@ -21,6 +21,10 @@ function NavBar() {
     navigate('/ReviewPage');
   };
 
+  const handleButtonLoginClick = () => {
+    navigate('/CreateAccount');
+  };
+
   return (
     <div className="n-wrapper">
       <div className="n-left">
@@ -53,7 +57,7 @@ function NavBar() {
         </div>
       </div>
       <div className="n-right">
-        <button className="button n-button">login</button>
+        <button className="button n-button" onClick={handleButtonLoginClick}>login</button>
       </div>
 
       {showPopup && (

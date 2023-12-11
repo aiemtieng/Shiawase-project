@@ -6,6 +6,7 @@ import Footer from '../../Component/Home/Footer/Footer'
 import StaffNavBar from '../Home/NavBar/StaffNavBar'
 import StaffOrderMenu from './StaffLinkOrder/StaffOrderMenu'
 import StaffOrderBooking from './StaffLinkOrder/StaffOrderBooking'
+import DrinkRecommend from '../../Component/Home/LinkDrink/DrinkRecommend'
 
 function StaffHome() {
   return (
@@ -14,7 +15,8 @@ function StaffHome() {
         <StaffMainPage/>
         <StaffOrderBooking/>
         <Recommend/>
-        
+        <DrinkRecommend/>
+        <Footer/>
     </div>
   )
 }
