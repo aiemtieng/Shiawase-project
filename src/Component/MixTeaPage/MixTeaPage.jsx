@@ -17,7 +17,7 @@ function MixTeaPage() {
         <PosterMixTea/>
         <TeaName/>
         <ChooseMixTea/>
-        <TeaSummary/>
+        
         <Footer/>
     </div>
   )

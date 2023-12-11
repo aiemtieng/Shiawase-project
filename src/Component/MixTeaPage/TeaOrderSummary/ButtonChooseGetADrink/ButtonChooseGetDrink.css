@@ -54,9 +54,6 @@
 }
 .PlaceholderPickUpAtCafe,
 .PlaceholderTableService {
-  /* Your existing styles for PlaceholderPickUpAtCafe and PlaceholderTableService */
-  /* Example styles for positioning */
-  border: none; /* Remove the border */
   outline: none; /* Remove the outline when focused */
   padding: 0; /* Adjust padding as needed */
   font-family: 'Itim', cursive;
@@ -64,3 +61,18 @@
   background: none; /* Remove background if necessary */
   display: inline-block; /* Display as inline block */
 }
+/* ButtonChooseGetDrink.css */
+.CircleButtonPickUpAtCafe.green {
+    /* CSS styles for the green button in PickUpAtCafe section */
+    /* For example: */
+    background-color: green;
+    /* Add other styles as needed */
+  }
+  
+  .CircleButtonTableService.green {
+    /* CSS styles for the green button in TableService section */
+    /* For example: */
+    background-color: green;
+    /* Add other styles as needed */
+  }
+  
