@@ -4,6 +4,7 @@ import ListTeaChoose from "../TeaOrderSummary/ListTeaChoose/ListTeaChoose";
 import HowToPay from "../../MixTeaPage/TeaOrderSummary/HowToPay/HowToPay";
 import { database } from "../../../Firebase"; // Assuming this import is correctly configured
 import { collection, addDoc } from "firebase/firestore"; // Imported addDoc
+import SumOfMoney from "../TeaOrderSummary/SumOfMoneyAndButtonConfirmOrder/SumOfMoney";
 
 function ChooseMixTea() {
   const [selectedTea, setSelectedTea] = useState("");
@@ -244,7 +245,7 @@ function ChooseMixTea() {
               <ul className="TextPickUpAtCafe">
                 <li>มารับเองที่ร้าน เวลา</li>
               </ul>
-              <input type="text" className="PlaceholderPickUpAtCafe" />
+              <input  type="text" className="PlaceholderPickUpAtCafe" />
             </div>
             <div
               className={
@@ -262,10 +263,11 @@ function ChooseMixTea() {
               <ul className="TextTableService">
                 <li>เสิร์ฟที่โต๊ะ หมายเลข</li>
               </ul>
-              <input type="text" className="PlaceholderTableService" />
+              <input  type="text" className="PlaceholderTableService" />
             </div>
           </div>
           <HowToPay />
+          <SumOfMoney/>
           <button className="SaveData s-data" onClick={handleAddData}>ยืนยันออเดอร์</button>
         </div>
       </div>

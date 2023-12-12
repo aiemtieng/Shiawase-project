@@ -18,6 +18,7 @@ import StaffHome from './Staff/Home/StaffHome';
 import Login from "./login/Login"
 import CreateAccount from './CreateAcc/CreateAccount';
 import ForgotPassWord from './ForgotPassWord/ForgotPassWord';
+import BookingTable from './Booking/BookingTable';
 
 
 
@@ -90,6 +91,10 @@ const router = createBrowserRouter([
   {
     path: "ForgotPassWord",
     element: <ForgotPassWord/>
+  },
+  {
+    path: "BookingTable",
+    element: <BookingTable/>
   }
  
   

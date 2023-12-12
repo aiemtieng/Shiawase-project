@@ -2,6 +2,7 @@ import React from 'react'
 import './ButtonMenuGetDrink.css'
 
 function ButtonMenuGetDrink() {
+  
   return (
     <div className='ButtonMenuGetDrink'>
         <div className='MenuPickUpAtCafe'>

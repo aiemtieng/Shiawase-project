@@ -1,10 +1,16 @@
-import React from "react";
+import React,{useState} from "react";
 import "./OrderMenu.css";
 import OrderMenu from "../../../img/ordermenu.PNG";
 import MixMenu from "../../../img/mixmenu.PNG";
 import Booking from "../../../img/booking.png";
+import { useNavigate } from "react-router-dom";
 
 function Order_Menu() {
+  const navigate = useNavigate();
+
+  const handleButtonClick = () => {
+    navigate('/BookingTable');
+  };
   return (
     <div className="Link_Order">
       <div className="OrderMenu">
@@ -27,7 +33,7 @@ function Order_Menu() {
         <img src={Booking} alt="bookingmenu" />
       </div>
       <div className="ButtonBooking">
-        <button className="Book ButtonBooking">
+        <button className="Book ButtonBooking" onClick={handleButtonClick}>
           book now
         </button>
       </div>

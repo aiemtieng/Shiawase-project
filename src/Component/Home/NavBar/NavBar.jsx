@@ -25,6 +25,10 @@ function NavBar() {
     navigate('/CreateAccount');
   };
 
+  const handleButtonBookingClick = () => {
+    navigate('/BookingTable');
+  };
+
   return (
     <div className="n-wrapper">
       <div className="n-left">
@@ -43,7 +47,7 @@ function NavBar() {
               )}
             </li>
             <li>
-              <button className="bookingtable">จองที่นั่ง</button>
+              <button className="bookingtable" onClick={handleButtonBookingClick}>จองที่นั่ง</button>
             </li>
             <li>
               <button className="review" onClick={handleButtonClick}>รีวิว</button>
