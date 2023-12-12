@@ -20,7 +20,7 @@ function StaffListShowMenu() {
 
   const loadRealTime = () => {
     const unsubscribe = onSnapshot(
-      query(collection(database, "Drink"), orderBy("menu_name")),
+      query(collection(database, "table1"), orderBy("menu_name")),
       (snapshot) => {
         const newData = snapshot.docs.map((doc) => ({
           id: doc.id,
