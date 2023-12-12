@@ -15,9 +15,9 @@ export const BookingTable = () => {
   return (
     <div className="BookingTable">
       <div className="div-2">
+      <NavBar/>
         <div className="overlap">
           <div className="view">
-          
             <PropertyDefaultWrapper className="component-3431" property1="default" />
           </div>
         </div>

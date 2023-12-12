@@ -19,6 +19,8 @@ import Login from "./login/Login"
 import CreateAccount from './CreateAcc/CreateAccount';
 import ForgotPassWord from './ForgotPassWord/ForgotPassWord';
 import BookingTable from './Booking/BookingTable';
+import StaffListShowMenu from './Staff/OrderMenuPage/StaffListShowMenu/StaffListShowMenu';
+import BookingOrder from './Booking/BookingOrder/BookingOrder';
 
 
 
@@ -95,7 +97,16 @@ const router = createBrowserRouter([
   {
     path: "BookingTable",
     element: <BookingTable/>
+  },
+  {
+    path: "OrderMenuPage",
+    element: <OrderMenuPage/>
+  },
+  {
+    path: "BookingOrder",
+    element:<BookingOrder/>
   }
+
  
   
  
