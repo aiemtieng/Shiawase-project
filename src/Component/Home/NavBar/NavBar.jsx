@@ -18,7 +18,7 @@ function NavBar() {
   const navigate = useNavigate();
 
   const handleButtonClick = () => {
-    navigate('/ReviewPage');
+    navigate('/ReviiewLogin');
   };
 
   const handleButtonLoginClick = () => {

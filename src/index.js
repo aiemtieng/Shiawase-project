@@ -21,6 +21,8 @@ import ForgotPassWord from './ForgotPassWord/ForgotPassWord';
 import BookingTable from './Booking/BookingTable';
 import StaffListShowMenu from './Staff/OrderMenuPage/StaffListShowMenu/StaffListShowMenu';
 import BookingOrder from './Booking/BookingOrder/BookingOrder';
+import ReviewProfile from './ReviewProfile/ReviewProfile';
+import ReviewLogin from './ReviewLogin/ReviewLogin';
 
 
 
@@ -105,6 +107,14 @@ const router = createBrowserRouter([
   {
     path: "BookingOrder",
     element:<BookingOrder/>
+  },
+  {
+    path: "ReviewProfile",
+    element: <ReviewProfile/>
+  },
+  {
+    path: "ReviiewLogin",
+    element: <ReviewLogin/>
   }
 
  
